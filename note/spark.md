@@ -220,6 +220,13 @@ http://spark.apache.org/docs/2.3.0/
   """)
   ```
 
+- sort: 특정 컬럼 기준으로 정렬
+
+  ```scala
+  employeeDF.sort(asc("birthday"))  // 오름차순 정렬
+  employeeDF.sort(desc("birthday")) // 내림차순 정렬
+  ```
+
 #### DataFrames Aggregation
 - join: key 기준으로 두 DataFrames 조인. inner(default), outer, leftsemi, ...
 
