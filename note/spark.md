@@ -221,11 +221,37 @@ http://spark.apache.org/docs/2.3.0/
   ```
 
 #### DataFrames Aggregation
-- join: inner, outer, leftsemi, ...
+- join: key 기준으로 두 DataFrames 조인. inner(default), outer, leftsemi, ...
 
   ```scala
   peopleDF.join(pcodesDF, $"pcode") // key 컬럼명이 같은 경우
   peopleDF.join(zcodesDF, $"pcode"===$"zip") // key 컬럼명이 다른 경우
+  ```
+
+- groupBy: key 기준으로 그룹 배열 생성 [key, values]
+
+  ```scala
+  employeeDF.groupBy("city", "state")
+  employeeDF.groupBy(concat($"fname", $"lname").alias("full_name"))
+  ```
+
+- groupBy calculation: count, avg, mean, min, max
+
+  ```scala
+  val employeeGroupDF = employeeDF.groupBy("city", "state")
+
+  employeeGroupDF.count // 그훕 내의 item들의 개수
+  ```
+
+  ```scala
+  val deviceGroupDF = deviceDF
+    .select("model", "temperature")
+    .groupBy("model")
+
+  deviceGroupDF.avg   // 그룹 내의 item들의 평균
+  deviceGroupDF.mean  // 그룹 내의 item들의 평균
+  deviceGroupDF.min   // 그룹 내의 item들의 최소값
+  deviceGroupDF.max   // 그룹 내의 item들의 최대값
   ```
 
 ### Saving DataFrames
