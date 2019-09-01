@@ -361,6 +361,7 @@ Employee records are stored in the HDFS directory **/user/cert/problem9/data/emp
 * Only store the first seven columns, including the id, name, and address information
 
 |id|fname|lname|address|city|state|zipcode|
+|---|---|---|---|---|---|---|
 |8525387|Morris|Lynn|221 Fairview Road|Adonis|MO|64206-0498|
 |8525386|Stanley|Greene|4734 Walnut Street|Jesterville|MD|56338-4986|
 

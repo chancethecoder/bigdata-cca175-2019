@@ -226,6 +226,7 @@ Loud Acre Mobile is concerned about phones over-heating. Sensor data is captured
 Phone sesor records are stored in the HDFS directory **/user/cert/problem9/data/sensor**
 
 |Column|Type|
+|---|---|
 |Timestamp|Int|
 |Customer ID|Int|
 |Phone ID|String|
